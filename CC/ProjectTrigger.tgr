@@ -1,0 +1,33 @@
+trigger ProjectTrigger on Project__c (after insert) {
+    
+    //geting project id of candidate
+    //here project.Domain__c is Master relationship
+    Id domain_id;
+    Id project_id;
+    for(Project__c  project : trigger.new){
+        domain_id = project.Domain__c;
+        project_id = project.Id;
+    }
+    
+    
+    List<Project__c> projectToUpdate = new List<Project__c>();
+ 	//now assigning the team to the project
+    //by cheacking is the team has same domain as the project
+    for(Team__c team : [ SELECT Id,Name ,Domain__c FROM Team__c]){
+        if(team.Domain__c == domain_id){
+            
+            //if we found the team with same domain as the project then 
+            //we assign teams name to name of team in project
+            for(Project__c  project  : [ SELECT Id,Team_name__c FROM Project__c]){
+                if(project.Id == project_id){
+                    project.Team_name__c = team.Name;
+                    projectToUpdate.add(project);
+                }
+        		
+    		}
+        }
+        
+    }
+    Update projectToUpdate;
+
+}

@@ -1,0 +1,36 @@
+trigger StudentTrigger on Stuudent__c (after insert) {
+    
+    //geting project id of candidate
+    //here project.Domain__c is Master relationship
+    Id department_id;
+    Id student_id;
+    Decimal year;
+    Decimal rno;
+    for(Stuudent__c  stud : trigger.new){
+        student_id = stud.Id;
+        department_id = stud.Department__c;
+        year = stud.Year__c;
+        rno = stud.Roll_no__c;
+    }
+    
+    List<Stuudent__c> studentToUpdate = new List<Stuudent__c>();
+    //now assigning the team to the project
+    //by cheacking is the team has same domain as the project
+    for(Batch__c batch : [ SELECT Id,Name ,From__c, To__c, Year__c,Department__c FROM Batch__c]){
+        if(batch.Department__c == department_id &&  batch.Year__c == year && ( (rno <= batch.To__c) && (rno >= batch.From__c) ) ){
+            
+            //if we found the team with same domain as the project then 
+            //we assign teams name to name of team in project
+            for(Stuudent__c  stud : [ SELECT Id,Batch__c FROM Stuudent__c]){
+                if(stud.Id == student_id){
+                    stud.Batch__c = batch.Name;
+                	studentToUpdate.add(stud);
+                }
+    		}
+        }
+        
+    }
+    Update studentToUpdate;
+
+
+}

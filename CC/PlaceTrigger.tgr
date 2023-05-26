@@ -1,0 +1,27 @@
+trigger PlaceTrigger on Place__c (after insert) {
+    
+    Id city_id;
+    Id place_id;
+    for(Place__c  place : trigger.new){
+        place_id = place.Id;
+        city_id = place.City__c;
+    }
+    
+    String 	category;
+    for(City__c city : [ SELECT Id,Category__c FROM City__c]){
+        if(city.Id == city_id){
+            category = city.Category__c;
+        }
+    } 
+    
+  	List<Place__c> placeToUpdate = new List<Place__c>();
+    for(Place__c  place : [ SELECT Id,Category_of_palce__c FROM Place__c]){
+        if(place.Id == place_id ){
+            place.Category_of_palce__c = category;
+            placeToUpdate.add(place);
+        }
+        
+    }
+    Update placeToUpdate;
+   
+}

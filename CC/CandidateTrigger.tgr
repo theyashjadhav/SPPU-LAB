@@ -1,0 +1,44 @@
+trigger CandidateTrigger on Candidate__c (after insert) {
+    
+    //geting job id of candidate
+    //here candidate.Jobb__c is Master relationship
+    Id job_id;
+    Id candidate_id;
+    for(Candidate__c  candidate : trigger.new){
+        job_id = candidate.Jobb__c;
+        candidate_id = candidate.Id;
+    }
+    
+    //geting job name using job id
+    String job_name;
+    for(Jobb__c job : [ SELECT Id,Name FROM Jobb__c]){
+        if(job.Id == job_id){
+            job_name = job.Name;
+        }
+    } 
+    
+    List<Candidate__c> CandidateToUpdate = new List<Candidate__c>();
+    
+ 
+    //now assigning the name of recruiter to the candidate
+    //by cheacking is the recruiter has same domain as the candidates job
+    for(Recruiter__c recruiter : [ SELECT Id,Name ,Domain__c FROM Recruiter__c]){
+        if(recruiter.Domain__c == job_name){
+            
+            //if we found the recruiter with ame domain as the candidates job then 
+            //we assign his name to name of Recruiter filed of candidates
+            for(Candidate__c  cand :  [ SELECT Id,Recruiter_name__c FROM Candidate__c]){
+                if(cand.Id == candidate_id){
+                    cand.Recruiter_name__c = recruiter.Name;
+                    CandidateToUpdate.add(cand);
+                }
+        		
+    		}
+        }
+        
+    }
+    
+    Update CandidateToUpdate;
+   
+    
+}
