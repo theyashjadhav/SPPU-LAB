@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "MLTable": "yaml",
+        "exception": "cpp",
+        "memory": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "xstring": "cpp",
+        "iostream": "cpp"
+    }
+}
