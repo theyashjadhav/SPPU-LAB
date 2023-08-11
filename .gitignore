@@ -1,3 +1,4 @@
 # Ignore executable and image files
 *.exe
 *.png
+temp*
