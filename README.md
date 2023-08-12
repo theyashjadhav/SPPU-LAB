@@ -13,9 +13,9 @@ This repository is your gateway to a wealth of lab execution resources covering 
 We've got you covered with lab executions for the following subjects:
 
 - [Artificial Intelligence (AI)](./AI/)
-- [Computer Communications (CC)](./CC/)
-- [Computer System Design Fundamentals (CSDF)](./CSDF/)
-- [Design and Analysis of Algorithms (DAA)](./DAA/)
+- [Cloud Computing (CC)](./CC/)
+- [Cyber Security & Digital Forensic (CSDF)](./CSDF/)
+- [Design & Analysis of Algorithms (DAA)](./DAA/)
 - [Machine Learning (ML)](./ML/)
 
 <!-- Feel free to add more subjects and their respective links -->
