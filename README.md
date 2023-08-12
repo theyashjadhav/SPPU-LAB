@@ -1,23 +1,25 @@
 # SPPU Lab Executions
 
-Welcome to the repository containing lab executions for various subjects of Savitribai Phule Pune University (SPPU).
+<p align="center">
+  <img src="./sppu_logo.jpg" alt="SPPU Logo" width="150">
+</p>
 
-## Introduction
+## Welcome to SPPU Lab Executions Repository!
 
-This repository hosts lab execution files for different subjects of SPPU. The goal is to provide a consolidated resource for lab assignments, code implementations, and documentation related to various practical sessions.
+This repository is your gateway to a wealth of lab execution resources covering various subjects offered by Savitribai Phule Pune University (SPPU). Whether you're a student or an educator, our goal is to provide you with a comprehensive collection of lab assignments, code implementations, and essential documentation for your practical sessions.
 
-## Subjects
+## 📚 Subjects at a Glance
 
-The repository covers lab executions for the following subjects:
+We've got you covered with lab executions for the following subjects:
 
-- [AI](./AI/)
-- [CC](./CC/)
-- [CSDF](./CSDF/)
-- [DAA](./DAA/)
-- [ML](./ML/)
+- [Artificial Intelligence (AI)](./AI/)
+- [Computer Communications (CC)](./CC/)
+- [Computer System Design Fundamentals (CSDF)](./CSDF/)
+- [Design and Analysis of Algorithms (DAA)](./DAA/)
+- [Machine Learning (ML)](./ML/)
 
-<!-- You can add more subjects and their respective links -->
+<!-- Feel free to add more subjects and their respective links -->
 
-## Getting Started
+## 🚀 Getting Started
 
-To access the lab executions and assignments for a specific subject, navigate to the corresponding subject directory and explore the provided resources.
+To embark on your learning journey and dive into the lab executions and assignments for a specific subject, simply navigate to the corresponding subject directory. There, you'll find a treasure trove of resources waiting to be explored.
