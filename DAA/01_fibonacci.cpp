@@ -21,7 +21,7 @@ void fibonacci_itr(int n)
     cout << "No.of steps are itr: " << steps << endl;
 }
 
-int fibonacci(int n, int *result, int &steps)
+int fibonacci(int n, int result[], int &steps)
 {
     steps++;
     if (n == 0)
@@ -41,9 +41,9 @@ void fibonacci_rec(int n)
 {
     int steps = 0;
     int result[n];
-    fibonacci(n, result, steps);
     result[0] = 0;
     result[1] = 1;
+    fibonacci(n, result, steps);
 
     cout << "\n\nfibonacci series rec: ";
     for (auto ele : result)
@@ -60,17 +60,8 @@ int main()
     cout << "Enter the no. : ";
     cin >> n;
 
-    auto start = std::chrono::high_resolution_clock::now();
     fibonacci_itr(n);
-    auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    cout << "Time taken: " << duration.count() << " ms" << endl;
-
-    start = std::chrono::high_resolution_clock::now();
     fibonacci_rec(n);
-    stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    cout << "Time taken: " << duration.count() << " ms" << endl;
 
     return 0;
 }
